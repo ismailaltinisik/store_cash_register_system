@@ -1,36 +1,37 @@
-#product class
-class ürün():
-    def __init__(self, adı, fiyatı, miktarı, barkodu):
-        self.adı = adı
-        self.fiyatı = fiyatı
-        self.barkodu = barkodu
-        self.miktarı = miktarı
+import turtle
+class product():
+    def __init__(self, name, price, quantity, barcode):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+        self.barcode = barcode
 
     def __str__(self):
-        return f"{self.miktarı} {self.adı}:{self.fiyatı}₺"
+        return f"{self.quantity} {self.name}:{self.price}₺"
+
 #Products
-süt = ürün("süt", 13, "1l", "stü1015")
-yoğurt = ürün("yoğurt", 15, "5kg", "stü2030")
+milk = product("milk", 13, "1l", "stü1015")
+yogurt = product("yogurt", 15, "5kg", "stü2030")
+
 #class to receive products supplied by the user
-ürünler = []
-
 while True:
-    istek = input("ürün giriniz.çıkmak için q tuşuna basınız: ")
-    if istek == "q":
+    request = input("Enter products.press q to exit: ")
+    if request == "q":
         break
-    elif istek == "süt" or istek == "stü1015":
-        print(süt)
-        ürünler.append(süt)
-    elif istek == "yoğurt" or istek == "stü2030":
-        print(yoğurt)
-        ürünler.append(yoğurt)
+    elif request == "milk" or request == "stü1015":
+        print(milk)
+        Products.append(milk)
+    elif request == "yogurt" or request == "stü2030":
+        print(yogurt)
+        Products.append(yogurt)
     else:
-        print("girdiğiniz ürün bulunmuyor")
+        print("The product you entered does not exist")
 
-print("\n".join([f"{ürün.adı}: {ürün.fiyatı}₺" for ürün in ürünler]))
-print(f"\033[1mToplam:\033[0m {sum([ürün.fiyatı for ürün in ürünler])}₺")
+print("\n".join([f"{product.name}: {product.price}₺" for product in Products]))
+print(f"\033[1mTotal:\033[0m {sum([product.price for product in Products])}₺")
 
 
+turtle.mainloop()
 
 
 
